@@ -122,6 +122,7 @@ public:
     static NAN_METHOD(fnDurability);
     static NAN_METHOD(fnViewQuery);
     static NAN_METHOD(fnN1qlQuery);
+    static NAN_METHOD(fnParseCas);
 
 public:
     CouchbaseImpl(lcb_t inst);
