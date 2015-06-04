@@ -472,3 +472,14 @@ NAN_METHOD(CouchbaseImpl::fnN1qlQuery) {
 
     NanReturnValue(NanTrue());
 }
+
+NAN_METHOD(CouchbaseImpl::fnParseCas) {
+    CouchbaseImpl *me = ObjectWrap::Unwrap<CouchbaseImpl>(args.This());
+    NanScope();
+    Handle<Value> cas = args[0];
+    uint64_t casValue;
+    if (!Cas::GetCas(cas, &casValue)) {
+            return NanThrowError(Error::create("bad cas passed"));
+    }
+    NanReturnValue(Cas::CreateCas(casValue));
+}

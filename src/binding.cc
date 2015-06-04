@@ -81,6 +81,7 @@ void CouchbaseImpl::Init(Handle<Object> target)
     NODE_SET_PROTOTYPE_METHOD(t, "durability", fnDurability);
     NODE_SET_PROTOTYPE_METHOD(t, "viewQuery", fnViewQuery);
     NODE_SET_PROTOTYPE_METHOD(t, "n1qlQuery", fnN1qlQuery);
+    NODE_SET_PROTOTYPE_METHOD(t, "parseCas", fnParseCas);
 
     target->Set(NanNew<String>("CouchbaseImpl"), t->GetFunction());
     target->Set(NanNew<String>("Constants"), createConstants());
